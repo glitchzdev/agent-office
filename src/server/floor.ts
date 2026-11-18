@@ -11,6 +11,7 @@ import { WorkerManager, workedMs, type HookEnv, type RunAs } from './workers.js'
 import { GitHub, MergeWatch } from './github.js';
 import type { GhAs } from './signins.js';
 import { TaskQueue } from './queue.js';
+import { Autopilot } from './autopilot.js';
 import { Changes } from './changes.js';
 import { Decor } from './decor.js';
 import { FloorPlanStore } from './floorplan.js';
@@ -115,6 +116,8 @@ export class Floor {
   readonly workers: WorkerManager;
   readonly github: GitHub;
   readonly queue: TaskQueue;
+  /** Puts the project's own task on the queue on a timer, when it has an agent-office.autopilot.json. */
+  readonly autopilot: Autopilot;
   readonly changes: Changes;
   readonly decor: Decor;
   /** The signs over its desks, and how far its back office is built out. */
@@ -245,6 +248,7 @@ export class Floor {
       },
       worktreeNote: () => officePrompt(ctx.prompts, 'queue.worktree'),
     });
+    this.autopilot = new Autopilot(def.dir, dataDir, this.queue, (text, level) => ctx.toast(this, text, level)).start();
 
     // Meetings seat their own workers round the meeting room's table and run them round by round.
     const workers = this.workers;
@@ -414,6 +418,7 @@ export class Floor {
     clearTimeout(this.landedTimer);
     this.dog.stop();
     this.github.stop();
+    this.autopilot.shutdown();
     this.queue.shutdown();
     this.meetings.shutdown();
     this.changes.stop();

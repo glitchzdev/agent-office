@@ -62,3 +62,29 @@ agent-office tunnel [office@address | url] [--port <n>] [--office-port <n>] [--n
   the worker stops it. Given an SSH address it opens the tunnel to the office too.
   See docs/tunnel.md.
 ```
+
+## Autopilot
+
+A floor queues a task of its own on a timer when its project has an `agent-office.autopilot.json` at the top of the checkout (commit it, so it goes wherever the project does):
+
+```json
+{
+  "everyMinutes": 240,
+  "title": "Next video",
+  "prompt": "You are the lead. Read docs/lead.md and start the next piece of work.",
+  "quietHours": [1, 7],
+  "owner": "omar"
+}
+```
+
+| Key | What it does |
+| --- | --- |
+| `everyMinutes` | Minutes from one task being queued to the next, 15 or more. A new one is only queued once the last one is done. |
+| `prompt` | The task the queue gets. |
+| `title` | Its title on the queue (`Autopilot` without one). |
+| `quietHours` | `[from, to)` hours, 0 to 23 on the office machine's clock, wrapping past midnight, when nothing is queued. |
+| `owner` | With accounts, the account whose Claude and GitHub sign-ins the task runs on. |
+| `enabled` | `false` turns it off. |
+
+When it last queued is kept in the floor's `.agent-office/autopilot.json`, so a restart doesn't run it early. The task goes through the queue like any other, so the queue's *workers at once*, the office's worker limit and the daily budget all apply.
+
