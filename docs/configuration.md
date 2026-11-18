@@ -88,3 +88,9 @@ A floor queues a task of its own on a timer when its project has an `agent-offic
 
 When it last queued is kept in the floor's `.agent-office/autopilot.json`, so a restart doesn't run it early. The task goes through the queue like any other, so the queue's *workers at once*, the office's worker limit and the daily budget all apply.
 
+
+## Language
+
+The office shows in **Spanish**. Its own words (menus, windows, hints, toasts, the sign-in page) are swapped for Spanish in the browser as they appear, from the dictionary in `src/client/i18n/` (`es-*.ts` for exact texts, `patterns.ts` for sentences with a name or number in them). Terminals, code and what people type are never translated, and text the dictionary doesn't know stays in English. Words painted into the 3D world (signs, the arcade) stay in English too.
+
+Open the office with `?lang=en` to switch that browser back to English, and `?lang=es` to return to Spanish; the choice is kept in the browser.

@@ -1,4 +1,5 @@
 import './style.css';
+import './i18n'; // the office in Spanish (see i18n/index.ts)
 import { Net } from './net';
 import { DesktopNotifier } from './notify';
 import { store, loadProfile, loadSettings } from './state';

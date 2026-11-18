@@ -3,6 +3,7 @@
 // terminal, with the keys a phone's keyboard hasn't got and a box to send it a prompt; and the boards
 // and the task queue. You're in the office as someone on the 2D view (PeerInfo.lite), not standing
 // anywhere in it.
+import './i18n'; // the office in Spanish (see i18n/index.ts)
 
 import { Net } from './net';
 import { AVATAR_COLORS, loadProfile, loadSettings, saveProfile, store } from './state';
