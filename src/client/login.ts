@@ -1,4 +1,4 @@
-export {}; // a module, so its names don't clash with the other pages' scripts
+import './i18n'; // the office in Spanish (see i18n/index.ts)
 
 const form = document.getElementById('form') as HTMLFormElement;
 const nameRow = document.getElementById('name-row') as HTMLLabelElement;
