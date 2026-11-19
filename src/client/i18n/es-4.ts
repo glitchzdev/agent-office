@@ -15,8 +15,13 @@ export const ES_4: ReadonlyArray<readonly [string, string]> = [
   ['R.I.P.', 'Q.E.P.D.'],
   // Other maps (castle, space station)
   ['🤝 The small council', '🤝 El consejo privado'],
-  ['🤝 Briefing room', '🤝 Sala de instrucciones'],
+  ['🤝 Briefing room', '🤝 Sala de reuniones'],
   ['🚀 Docking port', '🚀 Puerto de atraque'],
+  ['MINESWEEPER', 'BUSCAMINAS'],
+  ['🎯 DARTS', '🎯 DARDOS'],
+  ['⛳ Hole 1 · Par 1', '⛳ Hoyo 1 · Par 1'],
+  ['Rooftop bar', 'Bar de la azotea'],
+  ['Floors & projects', 'Plantas y proyectos'],
   ['⚠️ Airlock', '⚠️ Esclusa'],
   // Board agents
   ['Issues agent', 'Agente de pendientes'],
@@ -50,6 +55,7 @@ export const ES_4_PATTERNS: ReadonlyArray<readonly [RegExp, string]> = [
   [/^(🔀|🎉) PR #(\d+) open$/, '$1 PR #$2 abierto'],
   [/^(🔀|🎉) PR #(\d+) merged$/, '$1 PR #$2 fusionado'],
   [/^\+(\d+) more$/, '+$1 más'],
+  [/^🛰️ (.+) STATION$/, '🛰️ ESTACIÓN $1'],
   // "Claude Code · Opus 5.5 · High", with or without more after it: only the effort changes.
   [/^(.+?) · (Low|Medium|High|Extra high|Max)((?: · .*)?)$/, '$1 · $2$3'],
 ];
