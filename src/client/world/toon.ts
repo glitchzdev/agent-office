@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { localizeLabel } from '../i18n/labels';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
 let gradient: THREE.DataTexture | null = null;
@@ -69,7 +70,8 @@ type TextOpts = { color?: string; bg?: string; size?: number; border?: string };
 const TEXT_SCALE = 0.0055;
 
 /** A pill-shaped text label drawn to a texture; `w`/`h` are the canvas size in pixels. */
-function textTexture(text: string, opts: TextOpts) {
+function textTexture(raw: string, opts: TextOpts) {
+  const text = localizeLabel(raw);
   const size = opts.size ?? 48;
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d')!;
@@ -138,7 +140,8 @@ const FONT = 'Nunito, ui-rounded, system-ui, sans-serif';
  * A speech-bubble card: status pill, bold title (up to 2 lines) and a smaller body (up to 3), with a
  * tail pointing down. Its position is the tip of the tail, so it sits right on top of what it's about.
  */
-export function cardSprite(o: CardOpts): THREE.Sprite {
+export function cardSprite(card: CardOpts): THREE.Sprite {
+  const o: CardOpts = { ...card, title: localizeLabel(card.title), body: card.body && localizeLabel(card.body), chip: card.chip && { ...card.chip, text: localizeLabel(card.chip.text) } };
   const R = CARD_RES;
   const maxW = (o.maxWidth ?? 400) * R;
   const pad = 16 * R;
