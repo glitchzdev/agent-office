@@ -43,3 +43,8 @@ test('the words painted in the 3D world come out in Spanish too', () => {
   assert.equal(translate('Claude Code · Opus 5.5 · High · Radar GTA VI'), 'Claude Code · Opus 5.5 · Alto · Radar GTA VI');
   assert.equal(translate('EXIT'), 'SALIDA');
 });
+
+test('the signs around the building are in Spanish', () => {
+  assert.equal(translate('👑 Boss Office'), '👑 Oficina del jefe');
+  assert.equal(translate('👑 BOSS'), '👑 JEFE');
+});

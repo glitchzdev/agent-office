@@ -27,6 +27,24 @@ export const ES_4: ReadonlyArray<readonly [string, string]> = [
   ['🌿 worktree deleted', '🌿 worktree borrado'],
   ['✅ done!', '✅ ¡listo!'],
   ['⌨️ working', '⌨️ trabajando'],
+  // More signs around the building
+  ['👑 Boss Office', '👑 Oficina del jefe'],
+  ['👑 BOSS', '👑 JEFE'],
+  ['🏎️  GARAGE', '🏎️  GARAJE'],
+  ['MINESWEEPER', 'BUSCAMINAS'],
+  ['🎯 DARTS', '🎯 DARDOS'],
+  ['⛳ Hole 1 · Par 1', '⛳ Hoyo 1 · Par 1'],
+  ['🍺 Ale', '🍺 Cerveza'],
+  ['🤝 The small council', '🤝 El pequeño consejo'],
+  ['🍦 Snacks', '🍦 Botanas'],
+  ['🏎️ SCENIC LOOP', '🏎️ CIRCUITO PANORÁMICO'],
+  ['🌾 farm · 🌲 pines · 🏔️ mountains · 🏖️ beach — 1.4 km, either way ⟷', '🌾 granja · 🌲 pinos · 🏔️ montañas · 🏖️ playa — 1.4 km, en cualquier sentido ⟷'],
+  ['⚠️ Airlock', '⚠️ Esclusa'],
+  ['☕ Hot drinks', '☕ Bebidas calientes'],
+  ['🤝 Briefing room', '🤝 Sala de reuniones'],
+  ['🚀 Docking port', '🚀 Puerto de atraque'],
+  ['Rooftop bar', 'Bar de la azotea'],
+  ['Floors & projects', 'Plantas y proyectos'],
 ];
 
 /** The same world's words that carry a number or a name. */
@@ -36,6 +54,7 @@ export const ES_4_PATTERNS: ReadonlyArray<readonly [RegExp, string]> = [
   [/^(🔀|🎉) PR #(\d+) open$/, '$1 PR #$2 abierto'],
   [/^(🔀|🎉) PR #(\d+) merged$/, '$1 PR #$2 fusionado'],
   [/^\+(\d+) more$/, '+$1 más'],
+  [/^🛰️ (.+) STATION$/, '🛰️ ESTACIÓN $1'],
   // "Claude Code · Opus 5.5 · High", with or without more after it: only the effort changes.
   [/^(.+?) · (Low|Medium|High|Extra high|Max)((?: · .*)?)$/, '$1 · $2$3'],
 ];
