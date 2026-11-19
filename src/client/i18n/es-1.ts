@@ -333,7 +333,7 @@ export const ES_1: ReadonlyArray<readonly [string, string]> = [
   ["is running in a folder that no longer exists", "está trabajando en una carpeta que ya no existe"],
   ["Isolate the new worker on its own branch so parallel workers never collide", "Aísla al empleado nuevo en su propia rama para que los que trabajan en paralelo nunca choquen"],
   ["Isolate this worker on its own branch so parallel workers never collide", "Aísla a este empleado en su propia rama para que los que trabajan en paralelo nunca choquen"],
-  ["Issues", "Issues"],
+  ["Issues", "Pendientes"],
   ["Issues and tasks waiting for a worker", "Issues y tareas esperando a un empleado"],
   ["Issues board", "Tablero de issues"],
   ["It can't go back any further.", "No puede ir más atrás."],

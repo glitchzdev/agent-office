@@ -11,14 +11,16 @@
 import { ES_1 } from './es-1';
 import { ES_2 } from './es-2';
 import { ES_3 } from './es-3';
+import { ES_4, ES_4_PATTERNS } from './es-4';
 import { ES_PATTERNS } from './patterns';
+import { installCanvasTranslation } from './canvas';
 
 const STORE_KEY = 'office.lang';
 const ATTRS = ['placeholder', 'title', 'aria-label'] as const;
 /** Never translated inside these: terminals, code, and anything someone types. */
 const SKIP = '.xterm, pre, code, textarea, script, style, [contenteditable], .no-translate';
 
-const DICT = new Map<string, string>([...ES_1, ...ES_2, ...ES_3]);
+const DICT = new Map<string, string>([...ES_1, ...ES_2, ...ES_3, ...ES_4]);
 /** What we wrote, so a node we already translated isn't looked up again. */
 const done = new WeakMap<Node, string>();
 
@@ -28,7 +30,7 @@ export function translate(text: string): string | undefined {
   if (!core || !/[A-Za-z]/.test(core)) return undefined;
   let es = DICT.get(core);
   if (es === undefined) {
-    for (const [re, to] of ES_PATTERNS) {
+    for (const [re, to] of [...ES_PATTERNS, ...ES_4_PATTERNS]) {
       if (re.test(core)) {
         es = core.replace(re, (...m) => to.replace(/\$(\d)/g, (_, i) => translate(String(m[Number(i)])) ?? String(m[Number(i)])));
         break;
@@ -99,6 +101,7 @@ function title() {
 export function installTranslation(): void {
   if (typeof document === 'undefined' || language() === 'en') return;
   document.documentElement.lang = 'es';
+  installCanvasTranslation(translate);
   const start = () => {
     walk(document.body);
     title();
