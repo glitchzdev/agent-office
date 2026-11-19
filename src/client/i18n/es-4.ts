@@ -4,6 +4,20 @@ export const ES_4: ReadonlyArray<readonly [string, string]> = [
   // Boards and signs
   ['Pull Requests', 'Pull requests (cambios)'],
   ['EXIT', 'SALIDA'],
+  ['👑 Boss Office', '👑 Oficina del jefe'],
+  ['👑 BOSS', '👑 JEFE'],
+  ['☕ Hot drinks', '☕ Bebidas calientes'],
+  ['🍦 Snacks', '🍦 Botanas'],
+  ['🍺 Ale', '🍺 Cerveza'],
+  ['🏎️  GARAGE', '🏎️  GARAJE'],
+  ['🏎️ SCENIC LOOP', '🏎️ CIRCUITO PANORÁMICO'],
+  ['🌾 farm · 🌲 pines · 🏔️ mountains · 🏖️ beach — 1.4 km, either way ⟷', '🌾 granja · 🌲 pinos · 🏔️ montañas · 🏖️ playa — 1.4 km, por cualquier lado ⟷'],
+  ['R.I.P.', 'Q.E.P.D.'],
+  // Other maps (castle, space station)
+  ['🤝 The small council', '🤝 El consejo privado'],
+  ['🤝 Briefing room', '🤝 Sala de instrucciones'],
+  ['🚀 Docking port', '🚀 Puerto de atraque'],
+  ['⚠️ Airlock', '⚠️ Esclusa'],
   // Board agents
   ['Issues agent', 'Agente de pendientes'],
   ['PR agent', 'Agente de PR'],
